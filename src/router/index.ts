@@ -5,9 +5,22 @@ const router = createRouter({
   routes: [
       {
       path:'/',
+      name: 'login',
+      component: ()=>import(/*webpackchunkName:home*/ '../views/Login.vue')
+     },
+
+     {
+      path:'/home',
       name: 'home',
       component: ()=>import(/*webpackchunkName:home*/ '../views/Home.vue')
-      },
+     },
+
+
+     {
+      path:'/signup',
+      name: 'signup',
+      component: ()=>import(/*webpackchunkName:home*/ '../views/Signup.vue')
+     },
 
       {
         path:'/Pay-N-Play',

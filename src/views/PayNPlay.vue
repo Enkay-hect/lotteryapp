@@ -134,10 +134,10 @@ const  drum2arrayvalues = []
                     drum1arrayvalues.splice(arrayIndex, 1)
                 }
             }
+
+            console.log(drum1arrayvalues);
+
         }
-
-  
-
 
 
     function drum2Submit(e) {
@@ -174,7 +174,7 @@ const  drum2arrayvalues = []
             drum2aaa.style.borderRadius = '10px'
             drum2aaa.style.textAlign = 'center'
 
-            if(drum2ccc == 3){
+            if(drum2ccc == 2){
                 alert('Drum2 max reach')
                 defaultDrum2Color()
 
@@ -194,10 +194,13 @@ const  drum2arrayvalues = []
                     drum2arrayvalues.splice(arrayIndex, 1)
                 }
             }
+            console.log(drum2arrayvalues);
 
     }
 
 
+
+  
 </script>
 
 

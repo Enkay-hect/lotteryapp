@@ -3,38 +3,40 @@
      <div class="parent" v-if="!isLoading">
         <h1>Welcome to Polo 7</h1>
 
-        <div class="login-box home-box">
+           <form action="" class="login-box">
+                <h1>Lucky Login</h1>
 
-            <h1>Hello <span> James  &#128075 </span></h1>
-            
-            <button type="submit">
-                Pay - N - Play
-            </button>
+                <p>Phone Number</p>
 
-            <button type="submit" class="diff">
-                Game Ticket
-            </button>
+                <input type="text" placeholder="">
 
+                <p>Password</p>
 
-            <button type="submit" class="diff">
-                Prize Money Enquiry
-            </button>
+                <input type="text" placeholder="">
 
 
-            <!-- <a href="index.html">
-
-                Go to login-box
-                
-            </a>
-
-            <a href="signup.html">
-                Go to sign Up
-            </a> -->
-    
+                <button type="submit">
+                    Login
+                </button>
 
 
+                <div class="line">
+                    <div class="small-line"></div>
+
+                    <p>Or</p>
+
+                    <div class="small-line"></div>
+                </div>
+
+
+                <button type="submit" id="special">
+                    Create New Account
+                </button>
+           </form>
+
+          
         </div>
-    </div>
+   
 
 </template>
 
@@ -54,9 +56,9 @@ var isLoading = ref(true)
 </script>
 
 <style scoped>
-
-@media only screen and (max-width:768px) {
+    @media only screen and (max-width:768px) {
     .parent{
+        /* width: 100%; */
         padding-top: 2rem;
         padding-bottom:2rem;
         /* background: radial-gradient(101.53% 101.53% at 88.3% 100%, #01736D 0%, #39B68C 100%) ; */
@@ -176,5 +178,4 @@ var isLoading = ref(true)
 
 
 }
-
 </style>

@@ -1,60 +1,46 @@
 <template>
-    <splash v-if="isLoading"></splash>
-     <div class="parent" v-if="!isLoading">
+    <div class="parent">
         <h1>Welcome to Polo 7</h1>
 
-        <div class="login-box home-box">
-
-            <h1>Hello <span> James  &#128075 </span></h1>
-            
-            <button type="submit">
-                Pay - N - Play
-            </button>
-
-            <button type="submit" class="diff">
-                Game Ticket
-            </button>
-
-
-            <button type="submit" class="diff">
-                Prize Money Enquiry
-            </button>
-
-
-            <!-- <a href="index.html">
-
-                Go to login-box
+        <form action="" class="login-box">
                 
-            </a>
+                    <h1>Lucky Sign Up</h1>
 
-            <a href="signup.html">
-                Go to sign Up
-            </a> -->
-    
+                    <p>Phone Number</p>
+
+                    <input type="text" placeholder="Enter your Phone number">
+
+                    <p>Account Number </p>
+
+                    <input type="text" placeholder="Enter your account number">
+
+                    <p>Name</p>
+
+                    <input type="text" placeholder="Enter your name">
+
+                    <p>Password</p>
+
+                    <input type="text" placeholder="Enter your password">
+
+                    <p>Confirm Password</p>
+
+                    <input type="text" placeholder="Confirm password">
 
 
+
+                    <button type="submit">
+                        Signup
+                    </button>
+                </form>
         </div>
-    </div>
 
 </template>
 
 <script setup>
-import {ref, onMounted} from 'vue'
-
-import splash from '../components/Splash.vue'
-
-var isLoading = ref(true)
-
-  onMounted(()=>{
-    setTimeout(() => {
-      isLoading.value = false
-    }, 2000);
-  })
 
 </script>
 
 <style scoped>
-
 @media only screen and (max-width:768px) {
     .parent{
         padding-top: 2rem;
@@ -176,5 +162,4 @@ var isLoading = ref(true)
 
 
 }
-
 </style>

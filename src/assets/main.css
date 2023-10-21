@@ -8,6 +8,10 @@
 body{
   margin: 0;
   padding: 0;
+  background-color: rgba(1, 115, 109, 1);
+  background-image: url('./image/lotterybackground.png');
+  background-repeat: no-repeat;
+  background-size: cover;
   /* height: 100vh; */
 }
 
