@@ -9,24 +9,28 @@
 
      
         <div class="totNum">
-                    <!-- <ul v-for="l in length" > -->
                         <li 
-                            type="text"
-                            id="ilist"
-                            class="w-8 h-8 numList" 
-                            style="border-radius: 10px"
-                            @click="submit($event)"
-                            v-for="numn in 69"
-                            :key="numn"
+                            ref="drum1"
+                            type="input"
+                            class="w-7 h-7 numList" 
+                            style="border-radius: 10px; cursor: pointer"
+                            @click="drum1Submit($event)"
+                            v-for="drum1 in 69"
+                            :key="drum1"
                         >
-                            {{ numn}}
-                        </li>
-                    <!-- </ul> -->
-                   
+                            {{ drum1}}
+                        </li>                   
         </div>
 
         <div class="selection">
-            
+            <div id="selectionDrum1" class="selectionDrum1">
+            </div>
+
+            <div class="selectionDivider">
+            </div>
+
+            <div id="selectionDrum2" class="selectionDrum2">
+            </div>
         </div>
 
         <div class="header">
@@ -39,15 +43,14 @@
                     <!-- <ul v-for="l in length" > -->
                         <li 
                             type="text"
-                            ref="word"
                             id="illist"
-                            class="w-8 h-8 numList2" 
-                            style="border-radius: 10px"
-                            @click="atClick(word)"
-                            v-for="numn in 26"
-                            :key="numn"
+                            class="w-7 h-7 numList2" 
+                            style="border-radius: 10px; cursor: pointer"
+                            @click="drum2Submit($event)"
+                            v-for="drum2 in 26"
+                            :key="drum2"
                         >
-                            {{ numn}}
+                            {{ drum2}}
                         </li>
                     <!-- </ul> -->
                    
@@ -58,16 +61,129 @@
 </template>
 
 <script setup>
-import {ref, reactive, onUpdated, onMounted} from 'vue'
+import {ref, reactive} from 'vue'
 
 const length = 69
 const totNum = 1
 
-    function submit(e) {
-        alert(e.target.innerHTML)
+const drum1 = ref([])
+const drum1selection = 0
+const drum2selection = 0
+
+const drum1Select = 0
+
+const  drum1arrayvalues = []
+const  drum2arrayvalues = []
+
+
+
+    function drum1Submit(e) {
+        const drum1val = e.target
+        const drum1Text = e.target.innerHTML
+
+        //const drum1arrayvalues = ref()
+
+        const drum1bbb = document.getElementById('selectionDrum1')
+        const  drum1ccc = drum1bbb.getElementsByTagName('div').length
+
+        drum1bbb.style.cursor = 'pointer'
+
+            function defaultDrum1Color(){
+                drum1val.style.color = 'rgba(1, 115, 109, 1)'
+                drum1val.style.backgroundColor='white';
+                drum1val.style.border= 'rgba(1, 115, 109, 1)';
+            }
+
+            function setNewDrum1Color(){
+                drum1val.style.color = 'white'
+                drum1val.style.backgroundColor='rgba(1, 115, 109, 1)';
+                drum1val.style.border= '2px solid white';
+            }
+
+            setNewDrum1Color()   
+            
+            
+            const drum1Select = `${drum1selection + parseInt(drum1Text)}`
+            const drum1aaa = document.createElement('div')
+
+            if(drum1ccc == 5){
+                alert('Drum1 max reach')
+                defaultDrum1Color()
+
+            } else {
+
+                drum1aaa.innerHTML = drum1Select
+
+                if(!drum1arrayvalues.includes(drum1Select)){
+                    drum1arrayvalues.push(drum1Select)
+                    drum1bbb.appendChild(drum1aaa) 
+                }
+
+                drum1aaa.onclick = function(){
+                    drum1aaa.remove()
+                    defaultDrum1Color()
+                    const arrayIndex = drum1arrayvalues.indexOf(drum1Select)
+                    drum1arrayvalues.splice(arrayIndex, 1)
+                }
+            }
+        }
+
+  
+
+
+
+    function drum2Submit(e) {
+        const drum2val = e.target
+        const drum2Text = e.target.innerHTML
+
+
+        const drum2bbb = document.getElementById('selectionDrum2')
+        const  drum2ccc = drum2bbb.getElementsByTagName('div').length
+
+        drum2bbb.style.cursor = 'pointer'
+
+        function defaultDrum2Color(){
+                drum2val.style.color = 'rgba(0, 117, 255, 1)'
+                drum2val.style.backgroundColor='white';
+                drum2val.style.border= 'rgba(0, 117, 255, 1)';
+            }
+
+            function setNewDrum2Color(){
+                
+            }
+
+        //    setNewDrum2Color()  
+            
+            const drum2Select = `${drum2selection + parseInt(drum2Text)}`
+            const drum2aaa = document.createElement('div')
+
+            if(drum2ccc == 3){
+                alert('Drum2 max reach')
+                defaultDrum2Color()
+
+            } else {
+
+                drum2aaa.innerHTML = drum2Select
+
+                if(!drum2arrayvalues.includes(drum2Select)){
+                    drum2arrayvalues.push(drum2Select)
+                    drum2bbb.appendChild(drum2aaa) 
+                }
+
+                drum2aaa.onclick = function(){
+                    drum2aaa.remove()
+                    defaultDrum2Color()
+                    const arrayIndex = drum2arrayvalues.indexOf(drum2Select)
+                    drum2arrayvalues.splice(arrayIndex, 1)
+                }
+            }
+
     }
 
+
 </script>
+
+
 
 <style scoped>
 
@@ -79,7 +195,7 @@ const totNum = 1
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        margin-top: 5%;
+        margin-top: 15%;
     }
 
     .payNplayLinks{
@@ -89,8 +205,8 @@ const totNum = 1
     .totNum{
         display: flex;
         flex-flow: row wrap;
-        row-gap: 6px;
-        column-gap: 15px;
+        row-gap: 8px;
+        column-gap: 16px;
         width: 100%;
         box-sizing: border-box;
         margin-top: 5%; 
@@ -102,10 +218,17 @@ const totNum = 1
         color: rgba(1, 115, 109, 1);
         text-align: center;
         display: flex;
-        text-decoration: none;
-        list-style: none;
         justify-content: center;
         padding-top: 0;
+    }
+
+    .numListSelect{
+        background-color: rgba(1, 115, 109, 1);
+        color: white;
+        border: 3px solid white;
+        /* list-style: none;
+        width: 10px;
+        height: 10px; */
     }
     .numList2{
         background-color: white;
@@ -125,6 +248,9 @@ const totNum = 1
         margin-top: 10%;
         margin-left: -19px;
         margin-right: -19px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
     }
 
     .PayNplayContainer button{
@@ -132,11 +258,45 @@ const totNum = 1
         color: white;
         width: 100%;
         height: 50px;
-        margin-top: 16%;
-        margin-bottom: 16%;
+        margin-top: 20%;
+        margin-bottom: 20%;
         background-color: orange;
         border-radius: 9px;
         
+    }
+
+    .selectionDivider{
+        border: 2px solid rgba(0, 117, 255, 1);
+    }
+
+    .selectionDrum1{
+        width: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 6%;
+    }
+
+    .selectionDrum2{
+        
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 6%;
+    }
+
+    .sdrum{
+        background-color: gray;
+        color: rgba(1, 115, 109, 1);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        padding-top: 0;
+        width: 300%;
     }
 }
 </style>

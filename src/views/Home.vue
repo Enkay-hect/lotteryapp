@@ -13,6 +13,17 @@
 
 
         <div style="height: 400px;"></div>
+
+        <input 
+                        type="text"
+                        class="w-12 h-9 numList" 
+                        style="border-radius: 10px; cursor: pointer"
+                        @click="submit($event)"
+                        v-for="drum1 in 69"
+                        :value="drum1"
+ 
+                        disabled
+                        >
     </div>
 
   
