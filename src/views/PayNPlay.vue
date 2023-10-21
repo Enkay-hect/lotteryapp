@@ -4,7 +4,7 @@
         <div class="header">
             <h2  class="payNplayLinks">Drum 1</h2>
             <h3 class="payNplayLinks">Select 5</h3>
-            <router-link to="" class="payNplayLinks">QP</router-link>
+            <router-link to="" class="payNplayLinksQP">QP</router-link>
         </div>
 
      
@@ -36,7 +36,7 @@
         <div class="header">
             <h2 class="payNplayLinks">Drum 2</h2>
             <h3 class="payNplayLinks">Select 3</h3>
-            <router-link to="" class="payNplayLinks">QP</router-link>
+            <router-link to="" class="payNplayLinksQP">QP</router-link>
         </div>
 
         <div class="totNum">
@@ -227,6 +227,13 @@ const  drum2arrayvalues = []
     .payNplayLinks{
         color: white;
     }
+    .payNplayLinksQP{
+        color: white;
+        background: linear-gradient(91.44deg, #FF7D05 0%, #F2B006 100%);;
+        width: 15%;
+        text-align: center;
+        border-radius: 10px;
+    }
 
     .totNum{
         display: flex;
@@ -291,7 +298,7 @@ const  drum2arrayvalues = []
         justify-content: center;
         align-items: center;
         margin: 10% auto;
-        background-color: orange;
+        background: linear-gradient(91.44deg, #FF7D05 0%, #F2B006 100%);;
         border-radius: 9px;
     }
 
