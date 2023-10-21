@@ -35,7 +35,7 @@
 
         <div class="header">
             <h2 class="payNplayLinks">Drum 2</h2>
-            <h3 class="payNplayLinks">Select 3</h3>
+            <h3 class="payNplayLinks">Select 2</h3>
             <router-link to="" class="payNplayLinksQP">QP</router-link>
         </div>
 

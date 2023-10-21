@@ -2,7 +2,7 @@
     <div class="parent">
         <h1>Welcome to Polo 7</h1>
 
-        <form action="" class="login-box">
+        <form action="" class="login-box" @submit.prevent="signup">
                 
                     <h1>Lucky Sign Up</h1>
 
@@ -37,6 +37,20 @@
 </template>
 
 <script setup>
+ import { useRouter } from 'vue-router';
+const router = useRouter();
+
+
+  function signup(){
+   
+
+              setTimeout(() => {
+                router.push(
+                  {name: 'home'}
+                  // router.push ({name: 'dashboard'}) not working like in signup
+                )
+        }) 
+}
 
 </script>
 

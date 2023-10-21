@@ -7,7 +7,7 @@
 
             <h1>Hello <span> James  &#128075 </span></h1>
             
-            <button type="submit">
+            <button type="submit" @click="payNplay">
                 Pay - N - Play
             </button>
 
@@ -40,6 +40,8 @@
 
 <script setup>
 import {ref, onMounted} from 'vue'
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
 import splash from '../components/Splash.vue'
 
@@ -51,6 +53,17 @@ var isLoading = ref(true)
     }, 2000);
   })
 
+
+  function payNplay(){
+   
+
+   setTimeout(() => {
+     router.push(
+       {name: 'payandplay'}
+       // router.push ({name: 'dashboard'}) not working like in signup
+     )
+}) 
+}
 </script>
 
 <style scoped>

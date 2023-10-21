@@ -3,7 +3,7 @@
      <div class="parent" v-if="!isLoading">
         <h1>Welcome to Polo 7</h1>
 
-           <form action="" class="login-box">
+           <form action="" class="login-box" @submit.prevent="signin">
                 <h1>Lucky Login</h1>
 
                 <p>Phone Number</p>
@@ -29,11 +29,13 @@
                 </div>
 
 
-                <button type="submit" id="special">
+                
+           </form>
+           <form class="login-box" @submit.prevent="goToAccount" style="padding: 0;">
+            <button type="submit" id="special" >
                     Create New Account
                 </button>
            </form>
-
           
         </div>
    
@@ -42,6 +44,9 @@
 
 <script setup>
 import {ref, onMounted} from 'vue'
+
+import { useRouter } from 'vue-router';
+const router = useRouter();
 
 import splash from '../components/Splash.vue'
 
@@ -52,6 +57,29 @@ var isLoading = ref(true)
       isLoading.value = false
     }, 2000);
   })
+
+
+
+
+  function signin(){
+   
+
+              setTimeout(() => {
+                router.push(
+                  {name: 'home'}
+                  // router.push ({name: 'dashboard'}) not working like in signup
+                )
+        }) 
+}
+
+function goToAccount(){
+    setTimeout(() => {
+                router.push(
+                  {name: 'signup'}
+                  // router.push ({name: 'dashboard'}) not working like in signup
+                )
+        })  
+}
 
 </script>
 
@@ -91,8 +119,7 @@ var isLoading = ref(true)
         padding: 5%;
         margin: auto;
         border-radius: 0.625rem;
-        box-sizing: border-box;
-        
+        box-sizing: border-box; 
     }
 
     input{
