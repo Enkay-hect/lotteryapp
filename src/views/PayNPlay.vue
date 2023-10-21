@@ -2,7 +2,7 @@
     <!-- <div ref="input" @click="submit">Lorem ipsum dolor sit amet.</div> -->
     <div class="PayNplayContainer">
         <div class="header">
-            <h2 class="payNplayLinks">Drum 1</h2>
+            <h2  class="payNplayLinks">Drum 1</h2>
             <h3 class="payNplayLinks">Select 5</h3>
             <router-link to="" class="payNplayLinks">QP</router-link>
         </div>
@@ -105,6 +105,14 @@ const  drum2arrayvalues = []
             
             const drum1Select = `${drum1selection + parseInt(drum1Text)}`
             const drum1aaa = document.createElement('div')
+            drum1aaa.style.backgroundColor = 'rgba(1, 115, 109, 1)'
+            drum1aaa.style.color = 'white'
+            drum1aaa.style.width = '30px'
+            drum1aaa.style.height = '30px'
+            drum1aaa.style.borderRadius = '10px'
+            drum1aaa.style.textAlign = 'center'
+
+
 
             if(drum1ccc == 5){
                 alert('Drum1 max reach')
@@ -143,19 +151,28 @@ const  drum2arrayvalues = []
         drum2bbb.style.cursor = 'pointer'
 
         function defaultDrum2Color(){
-                drum2val.style.color = 'rgba(0, 117, 255, 1)'
+                drum2val.style.color = 'rgba(1, 115, 109, 1)'
                 drum2val.style.backgroundColor='white';
-                drum2val.style.border= 'rgba(0, 117, 255, 1)';
+                drum2val.style.border= 'rgba(1, 115, 109, 1)';
             }
 
             function setNewDrum2Color(){
-                
+                drum2val.style.color = 'white'
+                drum2val.style.backgroundColor='rgba(0, 117, 255, 1)';
+                drum2val.style.border= '2px solid white';
             }
 
-        //    setNewDrum2Color()  
+            setNewDrum2Color()  
             
             const drum2Select = `${drum2selection + parseInt(drum2Text)}`
             const drum2aaa = document.createElement('div')
+            drum2aaa.style.backgroundColor = 'rgba(0, 117, 255, 1)'
+            drum2aaa.style.color = 'white'
+            // drum2aaa.style.width = '20%'
+            drum2aaa.style.width = '30px'
+            drum2aaa.style.height = '30px'
+            drum2aaa.style.borderRadius = '10px'
+            drum2aaa.style.textAlign = 'center'
 
             if(drum2ccc == 3){
                 alert('Drum2 max reach')
@@ -189,13 +206,22 @@ const  drum2arrayvalues = []
 
 @media (max-width: 768px) {
     .PayNplayContainer{
-        padding: 10px 20px 0px 20px;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    h2,h1{
+        margin: 0px;
+        padding: 0px;
     }
     .header{
         display: flex;
+        width: 90%;
+        margin: auto;
         flex-direction: row;
         justify-content: space-between;
-        margin-top: 15%;
+        /* margin-top: 15%; */
+        padding-top: 5%;
     }
 
     .payNplayLinks{
@@ -207,9 +233,10 @@ const  drum2arrayvalues = []
         flex-flow: row wrap;
         row-gap: 8px;
         column-gap: 16px;
-        width: 100%;
+        width: 90%;
         box-sizing: border-box;
-        margin-top: 5%; 
+        /* margin-top: 5%;  */
+        margin: 5% auto;
         justify-content: center;
     }
 
@@ -242,27 +269,30 @@ const  drum2arrayvalues = []
     }
 
     .selection{
-        /* width: 100%; */
+        
+        width: 100%;
         height: 70px;
         background-color: aliceblue;
         margin-top: 10%;
-        margin-left: -19px;
-        margin-right: -19px;
+        /* margin-left: -19px; */
+        /* margin-right: -19px; */
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: space-between;
     }
 
     .PayNplayContainer button{
-        text-align: center;
         color: white;
-        width: 100%;
+        width: 80%;
         height: 50px;
-        margin-top: 20%;
-        margin-bottom: 20%;
+        /* margin-top: 20%;
+        margin-bottom: 20%; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10% auto;
         background-color: orange;
         border-radius: 9px;
-        
     }
 
     .selectionDivider{
@@ -270,17 +300,19 @@ const  drum2arrayvalues = []
     }
 
     .selectionDrum1{
-        width: 20%;
+        width: 67%;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
         flex-direction: row;
         align-items: center;
-        column-gap: 6%;
+        /* column-gap: 6%; */
+        /* margin-left: -10%;
+        margin-right: -10%; */
     }
 
     .selectionDrum2{
-        
+        width: 33%;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
