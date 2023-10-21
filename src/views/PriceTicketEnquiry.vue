@@ -20,6 +20,6 @@
     import SubDetail from '../Component/SubDetail.vue'
 </script>
 
-<style lang="css" scoped>
+<style lang="" scoped>
 
 </style>
