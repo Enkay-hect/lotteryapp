@@ -36,9 +36,15 @@
         </div>
 
         <div class="header">
+<<<<<<< HEAD
             <h2 class="payNplayLinks" style="font-weight: bold;">Drum 2</h2>
             <h2 class="payNplayLinks">Select 2</h2>
             <h2 class="payNplayLinksQP" style="background: rgba(0, 117, 255, 1);">QP</h2>
+=======
+            <h2 class="payNplayLinks">Drum 2</h2>
+            <h3 class="payNplayLinks">Select 2</h3>
+            <router-link to="" class="payNplayLinksQP">QP</router-link>
+>>>>>>> e06b3ea (wisdom new update)
         </div>
 
         <div class="totNum">

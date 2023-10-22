@@ -6,7 +6,14 @@
             text2="Lucky Numbers"
         >
 
-            <GameDetail></GameDetail>
+            <GameDetail
+                text1="Game Number"
+                text2="Ticket Number"
+                text3="Date"
+                chart1="123-23"
+                chart2="1135619"
+                chart3="120523"
+            ></GameDetail>
             <SubDetail></SubDetail>
         </dashbord>
 

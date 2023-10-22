@@ -49,5 +49,10 @@
             box-sizing: border-box;
         }
     }
+    @media screen and (max-width:385px) {
+        .section2{
+            width: 90%;
+        }
+    }
 
 </style>

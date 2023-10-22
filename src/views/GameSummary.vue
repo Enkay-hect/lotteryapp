@@ -106,8 +106,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
     .line{
         border: 1px solid #0075FF;
@@ -184,6 +184,14 @@
     }
     .second{
         width: 20%;
+    }
+}
+@media screen and (max-width:475px) {
+    .first{
+        width: 70%;
+    }
+    .second{
+        width: 25%;
     }
 }
 </style>
