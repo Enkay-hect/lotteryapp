@@ -28,8 +28,8 @@
 
 @media (max-width: 768px) {
     .logoDiv{
-        padding-top: 2rem;
-        padding-bottom:2rem;
+        padding-top: 4rem;
+        /* padding-bottom:2rem; */
         padding-left: 1.5rem;
     }
     .logo{
