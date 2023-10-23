@@ -23,14 +23,22 @@
         </div>
 
         <div class="selection">
-            <div id="selectionDrum1" class="selectionDrum1">
-                <div v-for="l in selection1" class="sd1"></div>
+           
+            <div  class="selectionDrum1">
+                <div id="selectionDrum1" class="selectionDrum1" style="column-gap: 10px">
+                    <div v-for="l in selection1" class="sd1"></div>
+                </div>
+
+                <!-- <div id="gplaceholder" style="display: flex; justify-content: space-between; column-gap: 10px">
+                    
+                </div> -->
             </div>
 
-            <div class="selectionDivider">
+
+            <div class="selectionDivider" >
             </div>
 
-            <div id="selectionDrum2" class="selectionDrum2">
+            <div id="selectionDrum2" class="selectionDrum2" style="justify-content: ;">
             <div v-for="l in selection2" class="sd1"></div>
             </div>
         </div>
@@ -90,6 +98,7 @@ function decrement1(){
 
 function increment1(){
         selection1.value++
+        
 }
 
 
@@ -105,145 +114,128 @@ function increment2(){
         selection2.value++
 }
 
+function drum1Submit(e){
+    const drum1val = e.target
+    const drum1Text = e.target.innerHTML
 
+    const selectionDrum1 = document.getElementById('selectionDrum1')
+    const selectionDrum1Babies = selectionDrum1.children
 
-   function drum1Submit(e) {
-        const drum1val = e.target
-        const drum1Text = e.target.innerHTML
+    function defaultDrum1Color(){
+            drum1val.style.color = 'rgba(1, 115, 109, 1)'
+            drum1val.style.backgroundColor='white';
+            drum1val.style.border= 'rgba(1, 115, 109, 1)';
+        }
 
-        const drum1bbb = document.getElementById('selectionDrum1')
-        const  drum1ccc = drum1bbb.getElementsByTagName('div').length
-
-
-        drum1bbb.style.cursor = 'pointer'
-
-            function defaultDrum1Color(){
-                drum1val.style.color = 'rgba(1, 115, 109, 1)'
-                drum1val.style.backgroundColor='white';
-                drum1val.style.border= 'rgba(1, 115, 109, 1)';
-            }
-
-            function setNewDrum1Color(){
-                drum1val.style.color = 'white'
-                drum1val.style.backgroundColor='rgba(1, 115, 109, 1)';
-                drum1val.style.border= '2px solid white';
-            }
-
-            setNewDrum1Color()   
-             
-            const drum1Select = `${drum1selection + parseInt(drum1Text)}`
-            const drum1aaa = document.createElement('div')
-            drum1aaa.style.backgroundColor = 'rgba(1, 115, 109, 1)'
-            drum1aaa.style.color = 'white'
-            drum1aaa.style.width = '30px'
-            drum1aaa.style.height = '33px'
-            drum1aaa.style.borderRadius = '10px'
-            drum1aaa.style.display = 'flex'
-            drum1aaa.style.justifyContent = 'center'
-            drum1aaa.style.alignItems = 'center'
-
-            // drum1bbb.removeChild(drum1bbb.firstElementChild);
-
-            // drum1bbb.lastElementChild.remove()
-
-            if(drum1arrayvalues.includes(drum1Select)){
-                    alert('Number chosen already')
-                    return
-                    
-            } else if(drum1arrayvalues.length == 5){
-                alert('Drum1 max reach')
-                defaultDrum1Color()
-
-            }
-            else{
-
-                decrement1()
-                drum1aaa.innerHTML = drum1Select
-
-                if(!drum1arrayvalues.includes(drum1Select)){
-                    drum1arrayvalues.push(drum1Select)
-                    drum1bbb.appendChild(drum1aaa) 
-                }
-
-                drum1aaa.onclick = function(){
-                    increment1()
-                    drum1aaa.remove()
-                    defaultDrum1Color()
-                    const arrayIndex = drum1arrayvalues.indexOf(drum1Select)
-                    drum1arrayvalues.splice(arrayIndex, 1)
-                }
-            }
-
-            console.log(drum1arrayvalues);
-
+    function setNewDrum1Color(){
+            drum1val.style.color = 'white'
+            drum1val.style.backgroundColor='rgba(1, 115, 109, 1)';
+            drum1val.style.border= '2px solid white';
         }
 
 
-    function drum2Submit(e) {
-        const drum2val = e.target
-        const drum2Text = e.target.innerHTML
+    if(drum1arrayvalues.includes(drum1Text)){
+        alert('already selected')
 
-
-        const drum2bbb = document.getElementById('selectionDrum2')
-        const  drum2ccc = drum2bbb.getElementsByTagName('div').length
-
-        drum2bbb.style.cursor = 'pointer'
-
-        function defaultDrum2Color(){
-                drum2val.style.color = 'rgba(1, 115, 109, 1)'
-                drum2val.style.backgroundColor='white';
-                drum2val.style.border= 'rgba(1, 115, 109, 1)';
-            }
-
-            function setNewDrum2Color(){
-                drum2val.style.color = 'white'
-                drum2val.style.backgroundColor='rgba(0, 117, 255, 1)';
-                drum2val.style.border= '2px solid white';
-            }
-
-            setNewDrum2Color()  
+        }  else if(drum1arrayvalues.length == 5 ){
+            alert('Drum1 max reached')
             
-            const drum2Select = `${drum2selection + parseInt(drum2Text)}`
-            const drum2aaa = document.createElement('div')
-            drum2aaa.style.backgroundColor = 'rgba(0, 117, 255, 1)'
-            drum2aaa.style.color = 'white'
-            // drum2aaa.style.width = '20%'
-            drum2aaa.style.width = '30px'
-            drum2aaa.style.height = '30px'
-            drum2aaa.style.borderRadius = '10px'
-            drum2aaa.style.textAlign = 'center'
-            drum2aaa.style.display = 'flex'
-            drum2aaa.style.justifyContent = 'center'
-            drum2aaa.style.alignItems = 'center'
+        }   else{
+    
+        for(const i = drum1arrayvalues.length; i<selectionDrum1Babies.length; i++){
 
+            if(!drum1arrayvalues.includes(drum1Text) && drum1arrayvalues.length < 5 ){
+                drum1arrayvalues.push(drum1Text)
 
-            if(drum2arrayvalues.includes(drum2Select)){
-                    alert('Number chosen already')
-                    
-            } else if(drum2arrayvalues.length == 2){
-                alert('Drum2 max reach')
-                defaultDrum2Color()
+                selectionDrum1Babies[i].innerHTML = drum1Text
 
-            } else {
-                decrement2()
-                drum2aaa.innerHTML = drum2Select
+                selectionDrum1Babies[i].style.backgroundColor = 'rgba(1, 115, 109, 1)'
+                selectionDrum1Babies[i].style.color = 'white'
+                selectionDrum1Babies[i].style.height = '33px'
+                selectionDrum1Babies[i].style.borderRadius = '10px'
+                selectionDrum1Babies[i].style.display = 'flex'
+                selectionDrum1Babies[i].style.justifyContent = 'center'
+                selectionDrum1Babies[i].style.alignItems = 'center'
 
-                if(!drum2arrayvalues.includes(drum2Select)){
-                    drum2arrayvalues.push(drum2Select)
-                    drum2bbb.appendChild(drum2aaa) 
+                setNewDrum1Color() 
+
+                selectionDrum1Babies[i].onclick = function(){
+                    const arrayIndex = drum1arrayvalues.indexOf(selectionDrum1Babies[i].innerHTML)
+                    selectionDrum1.removeChild(selectionDrum1Babies[i])
+                    increment1()
+                    defaultDrum1Color()
+                    drum1arrayvalues.splice(arrayIndex, 1)
                 }
+            
+            } 
+            console.log(drum1arrayvalues);
 
-                drum2aaa.onclick = function(){
+        }
+    }
+
+}
+
+
+function drum2Submit(e) {
+    const drum2val = e.target
+    const drum2Text = e.target.innerHTML
+
+
+    const selectionDrum2 = document.getElementById('selectionDrum2')
+    const selectionDrum2Babies = selectionDrum2.children
+
+
+    function defaultDrum2Color(){
+        drum2val.style.color = 'rgba(1, 115, 109, 1)'
+        drum2val.style.backgroundColor='white';
+        drum2val.style.border= 'rgba(1, 115, 109, 1)';
+    }
+
+    function setNewDrum2Color(){
+        drum2val.style.color = 'white'
+        drum2val.style.backgroundColor='rgba(0, 117, 255, 1)';
+        drum2val.style.border= '2px solid white';
+    }
+
+    if(drum2arrayvalues.includes(parseInt(drum2Text))){
+        alert('already selected')
+
+    }  else if(drum2arrayvalues.length == 2 ){
+            alert('Drum2 max reached')
+            
+    } else{
+    
+        for(const i = drum2arrayvalues.length; i<selectionDrum2Babies.length; i++){
+
+            if(!drum2arrayvalues.includes(drum2Text) && drum2arrayvalues.length < 2 ){
+                drum2arrayvalues.push(drum2Text)
+
+                selectionDrum2Babies[i].innerHTML = drum2Text
+
+                selectionDrum2Babies[i].style.backgroundColor = 'rgba(0, 117, 255, 1)'
+                selectionDrum2Babies[i].style.color = 'white'
+                selectionDrum2Babies[i].style.height = '33px'
+                selectionDrum2Babies[i].style.borderRadius = '10px'
+                selectionDrum2Babies[i].style.display = 'flex'
+                selectionDrum2Babies[i].style.justifyContent = 'center'
+                selectionDrum2Babies[i].style.alignItems = 'center'
+
+                setNewDrum2Color() 
+
+                selectionDrum2Babies[i].onclick = function(){
+                    const arrayIndex = drum2arrayvalues.indexOf(selectionDrum2Babies[i].innerHTML)
+                    selectionDrum2.removeChild(selectionDrum2Babies[i])
                     increment2()
-                    drum2aaa.remove()
                     defaultDrum2Color()
-                    const arrayIndex = drum2arrayvalues.indexOf(drum2Select)
                     drum2arrayvalues.splice(arrayIndex, 1)
                 }
-            }
-            console.log(drum2arrayvalues);
-
+                
+            } 
+console.log(drum2arrayvalues)
+        }
     }
+
+}
 
 
 
@@ -270,7 +262,6 @@ function increment2(){
         margin: auto;
         flex-direction: row;
         justify-content: space-between;
-        /* margin-top: 15%; */
         padding-top: 5%;
     }
 
@@ -279,7 +270,6 @@ function increment2(){
     }
     .payNplayLinksQP{
         color: white;
-        /* background: linear-gradient(91.44deg, #FF7D05 0%, #F2B006 100%); */
         width: 15%;
         text-align: center;
         display: flex;
@@ -312,9 +302,6 @@ function increment2(){
         background-color: rgba(1, 115, 109, 1);
         color: white;
         border: 3px solid white;
-        /* list-style: none;
-        width: 10px;
-        height: 10px; */
     }
     .numList2{
         background-color: white;
@@ -331,8 +318,6 @@ function increment2(){
         height: 70px;
         background-color: aliceblue;
         margin-top: 10%;
-        /* margin-left: -19px; */
-        /* margin-right: -19px; */
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -342,8 +327,6 @@ function increment2(){
         color: white;
         width: 95%;
         height: 60px;
-        /* margin-top: 20%; */
-        /* margin-bottom: 0; */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -358,29 +341,20 @@ function increment2(){
 
     .selectionDrum1{
         width: 67%;
+        margin: auto;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        flex-direction: row-reverse;
+        flex-direction: row;
         align-items: center;
-        /* column-gap: 6%; */
-        /* margin-left: -10%;
-        margin-right: -10%; */
     }
 
     .sd1{
 
-        /* drum1aaa.style.backgroundColor = 'rgba(1, 115, 109, 1)'
-            drum1aaa.style.color = 'white'
-            drum1aaa.style.width = '30px'
-            drum1aaa.style.height = '30px'
-            drum1aaa.style.borderRadius = '10px'
-            drum1aaa.style.textAlign = 'center' */
-
-            background-color: rgba(169, 165, 165, 0.49);
-            width: 30px;
-            height: 30px;
-            border-radius: 10px;
+       background-color: rgba(169, 165, 165, 0.49);
+        width: 30px;
+        height: 30px;
+        border-radius: 10px;
 
     }
 
@@ -389,7 +363,7 @@ function increment2(){
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        flex-direction: row-reverse;
+        flex-direction: row;
         align-items: center;
         column-gap: 6%;
     }
